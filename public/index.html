@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>赛鸽血统环号登记站 · 鸽棚容量与迁入复核台</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>鸽棚容量与迁入复核台</h1>
+      <div class="meta">档案入棚先占有效棚位；满员、停用、通风不符即拒且原归属不变；超配冻结迁入、在棚待复核</div>
+    </div>
+    <button id="reload">刷新</button>
+  </header>
+  <main>
+    <aside>
+      <form id="pigeonForm">
+        <h2>创建鸽只档案</h2>
+        <label>足环号</label><input name="ringNo" required>
+        <label>鸽主</label><input name="owner" required>
+        <label>父鸽足环号</label><input name="fatherRing">
+        <label>母鸽足环号</label><input name="motherRing">
+        <label>羽色</label><input name="color" required>
+        <label>所需通风等级</label>
+        <select name="needVentilation">
+          <option value="C">C 级（普通）</option>
+          <option value="B">B 级（良好）</option>
+          <option value="A">A 级（强制通风）</option>
+        </select>
+        <label>入棚（须占用有效棚位）</label><select name="loft" required></select>
+        <button>保存档案并入棚</button>
+      </form>
+      <form id="moveForm">
+        <h2>迁入申请</h2>
+        <label>足环号</label><input name="ringNo" required placeholder="如 CHN-2026-001">
+        <label>目标棚</label><select name="toLoftId" required></select>
+        <div class="meta">请求编号：<code id="reqId"></code>（重复或并发提交只采用首次结果）</div>
+        <button>提交迁入申请</button>
+      </form>
+      <form id="loftForm">
+        <h2>新建鸽棚</h2>
+        <label>棚名</label><input name="name" required>
+        <label>容量</label><input name="capacity" type="number" min="0" step="1" value="2" required>
+        <label>通风等级</label>
+        <select name="ventilation">
+          <option value="A">A 级</option>
+          <option value="B">B 级</option>
+          <option value="C" selected>C 级</option>
+        </select>
+        <button>建棚</button>
+      </form>
+    </aside>
+    <section>
+      <div id="feedback" class="feedback">操作反馈会显示在这里。</div>
+      <h2 class="section-title">鸽棚看板</h2>
+      <div class="grid" id="lofts"></div>
+      <h2 class="section-title">待迁移清单</h2>
+      <div id="moves"></div>
+      <h2 class="section-title">血统查询</h2>
+      <div class="toolbar"><input id="search" placeholder="输入足环号查询血统"><button id="searchBtn">查询</button></div>
+      <div class="panel" id="detail"></div>
+      <h2 class="section-title">鸽只档案</h2>
+      <div class="grid" id="cards"></div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

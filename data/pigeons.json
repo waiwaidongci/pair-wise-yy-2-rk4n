@@ -1,4 +1,30 @@
 {
+  "lofts": [
+    {
+      "name": "北岸A棚",
+      "capacity": 12,
+      "status": "active",
+      "ventilation": "A"
+    },
+    {
+      "name": "种鸽棚",
+      "capacity": 8,
+      "status": "active",
+      "ventilation": "B"
+    },
+    {
+      "name": "育种棚",
+      "capacity": 6,
+      "status": "active",
+      "ventilation": "B"
+    },
+    {
+      "name": "南坡赛棚",
+      "capacity": 4,
+      "status": "disabled",
+      "ventilation": "C"
+    }
+  ],
   "pigeons": [
     {
       "ringNo": "CHN-2026-001",
@@ -6,7 +32,9 @@
       "fatherRing": "CHN-2022-188",
       "motherRing": "CHN-2023-512",
       "color": "灰",
+      "requiredVentilation": "A",
       "loft": "北岸A棚",
+      "reviewStatus": null,
       "vaccines": [
         {
           "date": "2026-04-01",
@@ -36,7 +64,9 @@
       "fatherRing": "",
       "motherRing": "",
       "color": "雨点",
+      "requiredVentilation": "B",
       "loft": "种鸽棚",
+      "reviewStatus": null,
       "vaccines": [],
       "transfers": [],
       "races": []
@@ -47,10 +77,13 @@
       "fatherRing": "",
       "motherRing": "",
       "color": "红轮",
+      "requiredVentilation": "B",
       "loft": "种鸽棚",
+      "reviewStatus": null,
       "vaccines": [],
       "transfers": [],
       "races": []
     }
-  ]
+  ],
+  "moveIns": []
 }
